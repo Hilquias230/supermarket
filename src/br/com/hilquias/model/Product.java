@@ -1,4 +1,5 @@
 package br.com.hilquias.model;
+import java.math.BigDecimal;
 
 public class Product {
     public int getId() {
@@ -17,11 +18,11 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -35,8 +36,19 @@ public class Product {
 
     private int id;
     private String name;
-    private double price;
+    private BigDecimal price;
     private int stock;
+
+    public String toString() {
+        return """
+                ==========================
+                ID: %d
+                Nome: %s
+                Preço: %s
+                Estoque: %d
+                ==========================
+                """.formatted(id, name,price, stock);
+    }
 
 
 }

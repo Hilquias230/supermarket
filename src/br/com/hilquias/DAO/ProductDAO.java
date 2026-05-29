@@ -1,8 +1,6 @@
 package br.com.hilquias.DAO;
-
 import br.com.hilquias.model.Product;
 import br.com.hilquias.connection.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +15,7 @@ public class ProductDAO {
         PreparedStatement ps = Connection.connect().prepareStatement(sql);
 
         ps.setString(1, product.getName());
-        ps.setDouble(2, product.getPrice());
+        ps.setBigDecimal(2, product.getPrice());
         ps.setInt(3, product.getStock());
 
         ps.execute();
@@ -35,10 +33,12 @@ public class ProductDAO {
 
         while (rs.next()) {
             Product product = new Product();
-            System.out.println(rs.getString("id"));
-            System.out.println(rs.getString("name"));
-            System.out.println(rs.getString("price"));
-            System.out.println(rs.getString("stock"));
+            product.setId(rs.getInt("id"));
+            product.setName(rs.getString("name"));
+            product.setPrice(rs.getBigDecimal("price"));
+            product.setStock(rs.getInt("stock"));
+
+            System.out.println(product);
 
             lista.add(product);
         }
@@ -79,7 +79,7 @@ public class ProductDAO {
         PreparedStatement ps = Connection.connect().prepareStatement(sql);;
 
         ps.setString(1, product.getName());
-        ps.setDouble(2, product.getPrice());
+        ps.setBigDecimal(2, product.getPrice());
         ps.setInt(3, product.getStock());
         ps.setInt(4, product.getId());
 

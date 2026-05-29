@@ -3,6 +3,7 @@ package br.com.hilquias.controller;
 import br.com.hilquias.DAO.ProductDAO;
 import br.com.hilquias.model.Product;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class ProdutoController {
 
         System.out.println("PREÇO:");
         double price = input.nextDouble();
-        product.setPrice(price);
+        product.setPrice(BigDecimal.valueOf(price));
 
         System.out.println("ESTOQUE:");
         int stock = input.nextInt();
@@ -45,7 +46,7 @@ public class ProdutoController {
 
         System.out.println("PREÇO:");
         double price = input.nextDouble();
-        product.setPrice(price);
+        product.setPrice(BigDecimal.valueOf(price));
 
         System.out.println("ESTOQUE:");
         int stock = input.nextInt();
