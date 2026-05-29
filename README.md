@@ -8,7 +8,7 @@ Neste projeto, o usuário poderá:
 
 ## Menu interativo 🖥️​
 
-![print_menu.png](../../Imagens/Screenshots/print_menu.png)
+![print_menu.png](src/br/com/hilquias/img)
 
 ## Tecnologias ⚙️​
 
